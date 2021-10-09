@@ -16,6 +16,7 @@ import Footer from './components/Footer'
 import CakeDataRow from './components/CakeDataRow'
 import { WedgeTopLeft, InnerWedgeWrapper, OuterWedgeWrapper, WedgeTopRight } from './components/WedgeSvgs'
 import UserBanner from './components/UserBanner'
+import FarmStakingCard from './components/FarmStakingCard'
 
 const StyledHeroSection = styled(PageSection)`
   padding-top: 16px;
@@ -71,7 +72,7 @@ const Home: React.FC = () => {
         {/* <Hero /> */}
         <DoodaMain />
       </StyledHeroSection>
-      {/* <PageSection
+      <PageSection
         innerProps={{ style: { margin: '0', width: '100%' } }}
         background={
           theme.isDark
@@ -81,8 +82,9 @@ const Home: React.FC = () => {
         index={2}
         hasCurvedDivider={false}
       >
-        <MetricsSection />
-      </PageSection> */}
+        {/* <MetricsSection /> */}
+        <FarmStakingCard />
+      </PageSection>
       {/* <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}
         background={theme.colors.background}
