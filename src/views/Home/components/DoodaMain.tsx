@@ -9,8 +9,24 @@ import ConnectWalletButton from 'components/ConnectWalletButton'
 import useTheme from 'hooks/useTheme'
 import { RightArrow, CarosalMain, CarosalSub } from 'components/DoodaIcon'
 import CardBackground from 'components/Dooda/assets/CardBackground.png'
+import DoodaFarmedStakingCard from './DoodaFarmStakingCard'
 import { SlideSvgDark, SlideSvgLight } from './SlideSvg'
 import CompositeImage, { getSrcSet, CompositeImageProps } from './CompositeImage'
+import {
+  DoodaHeading,
+  DoodaSubText,
+  DoodaSubHeading,
+  DswapButton,
+  StyledSubHead,
+  DswapTotal,
+  DswapData,
+  DoodaDataQty,
+  DoodaDataTotal,
+  DoodaDataCurrency,
+  StyledDoodaHeadAlt,
+  StyledDoodaHeadAlt2,
+  DoodaDefaultBtn,
+} from '../styles'
 
 const flyingAnim = () => keyframes`
   from {
@@ -78,13 +94,6 @@ const StarsWrapper = styled.div`
   }
 `
 // added custom styled components for doodaswap
-const DoodaStyledHeading = styled(Heading)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
-
 const DoodaHomepageLogo = styled(DoodaTextOnlyLogo)`
   content-align: center;
   margin: 0px auto;
@@ -96,16 +105,6 @@ const DoodaHomepageLogo = styled(DoodaTextOnlyLogo)`
   @media (max-width: 500px) {
     width: 70%;
   }
-`
-const DoodaSubText = styled.h4`
-  color: #4d5560 !important;
-  font-family: Spoqa Han Sans Neo;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 26px;
-  text-align: center;
-  letter-spacing: -0.8px;
 `
 const DmainLeft = styled.div`
   background-image: url(${CardBackground});
@@ -174,131 +173,11 @@ const DoodaSwapMain = styled.div`
     margin-top: 3rem;
   }
 `
-const DoodaSubHead = styled.h6`
-  color: #f1f3f5 !important;
-  font-family: Roboto !important;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 28px;
-  letter-spacing: -0.02em;
-`
-const DswapLeft = styled.div`
-  width: 50%;
-  border-right: 1px solid #ffffff;
-  height: 200px;
-  padding: 0.4rem;
-  @media (max-width: 854px) {
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid #ffffff;
-  }
-`
-const DswapRight = styled.div`
-  width: 50%;
-  height: 200px;
-  padding: 0.4rem;
-  @media (max-width: 854px) {
-    width: 100%;
-    height: auto;
-  }
-`
-const DswapButton = styled.button`
-  color: red;
-  width: 100%;
-  margin-top: 0.6rem;
-  background: #ffffff;
-  border-radius: 2px;
-  border: none;
-  cursor: pointer;
-  padding: 0.6rem;
-  font-family: Spoqa Han Sans Neo;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 26px;
-  letter-spacing: -0.8px;
-  color: #636c7d;
-`
-const SyledSubHead = styled(DoodaSubHead)`
-  font-size: 13px;
-  padding-top: 3px;
-`
-const DswapTotal = styled.div`
-  float: right;
-`
-const DswapData = styled.div`
-  height: auto;
-  float: right;
-  margin-top: 40%;
-  margin-right: 6%;
-  @media (max-width: 854px) {
-    margin-top: 26%;
-  }
-`
-const DoodaDataQty = styled(DoodaSubHead)`
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 28px;
-  line-height: 48px;
-  letter-spacing: -0.02em;
-  color: #f1f3f5;
-`
-const DoodaDataTotal = styled(DoodaSubHead)`
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 22px;
-  text-align: right;
-  letter-spacing: -0.02em;
-  color: #f1f3f5;
-`
-const DoodaDataCurrency = styled(DoodaSubHead)`
-  font-family: Roboto;
-  font-style: normal;
-  padding-top: 6.5px;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 26px;
-  text-transform: uppercase;
-  text-align: right;
-  letter-spacing: -0.02em;
-  margin-left: 6px;
-  color: #f1f3f5;
-  opacity: 0.5;
-`
-const StyledDoodHeadAlt = styled(DoodaSubHead)`
-  font-family: Spoqa Han Sans Neo;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 26px;
-  text-align: center;
-  letter-spacing: -0.8px;
-  color: #3763a4 !important;
-  padding: 4.3rem 2rem 0rem;
-`
-const StyledDoodaHeadAlt2 = styled(StyledDoodHeadAlt)`
-  padding: 0.1rem 0.5rem !important;
-  font-family: Roboto;
-  text-align: left;
-`
+
 const DoodaSubTextLeft = styled(DoodaSubText)`
   padding: 2rem 1.7rem 1.3rem 2.5rem;
 `
-const DoodaDefaultBtn = styled.button`
-  margin: 0px auto;
-  width: 30%;
-  border: none;
-  cursor: pointer;
-  background: #ffffff;
-  border: 1px solid #99a2ab;
-  box-sizing: border-box;
-  border-radius: 2px;
-`
+
 const StyledRightArrow = styled(RightArrow)`
   width: 30px;
   height: 30px;
@@ -339,6 +218,7 @@ const DoodaStatValue = styled.nav`
   letter-spacing: -0.02em;
   color: #3763a4;
 `
+
 // styled components for below main section
 const DoodaSwapBelowMain = styled.div`
   margin: 3rem 0rem 1rem;
@@ -455,20 +335,18 @@ const DoodaMain = () => {
         id="homepage-hero"
       >
         <Flex flex="2" flexDirection="column">
-          <DoodaStyledHeading scale="xxl">
+          <DoodaHeading scale="xxl">
             <DoodaHomepageLogo isDark={theme.isDark} />
             <DoodaSubText>안녕하세요, DOODA 입니다.</DoodaSubText>
-          </DoodaStyledHeading>
+          </DoodaHeading>
           <DoodaSwapMain>
             <Flex
               flex="2"
-              // flexDirection="column"
               flexDirection={['column', null, null, 'row']}
-              // alignItems={['flex-end', null, null, 'center']}
               alignItems={['flex-start', 'center', 'center', 'center']}
             >
               <DmainLeft>
-                <StyledDoodHeadAlt>아프로디테 (AFD) NFT 옥션이 시작되었습니다!</StyledDoodHeadAlt>
+                <StyledDoodaHeadAlt>아프로디테 (AFD) NFT 옥션이 시작되었습니다!</StyledDoodaHeadAlt>
                 <Flex
                   flex="2"
                   flexDirection={['column', null, null, 'row']}
@@ -490,46 +368,7 @@ const DoodaMain = () => {
                 </CarosalContainer>
               </DmainLeft>
               <DmainCenter>
-                <DoodaSubHead>Farms & Staking</DoodaSubHead>
-                <Flex
-                  flex="2"
-                  flexDirection={['column', null, null, 'row']}
-                  alignItems={['flex-start', null, null, 'center']}
-                >
-                  <DswapLeft>
-                    <SyledSubHead>수령 가능</SyledSubHead>
-                    <DswapData>
-                      <Flex
-                        flex="2"
-                        flexDirection={['column-reverse', null, null, 'row']}
-                        alignItems={['center', null, null, 'center']}
-                      >
-                        <DoodaDataQty>0</DoodaDataQty>
-                        <DoodaDataCurrency>dooda</DoodaDataCurrency>
-                      </Flex>
-                      <DswapTotal>
-                        <DoodaDataTotal>~ $ 0</DoodaDataTotal>
-                      </DswapTotal>
-                    </DswapData>
-                  </DswapLeft>
-                  <DswapRight>
-                    <SyledSubHead>누적 보상</SyledSubHead>
-                    <DswapData>
-                      <Flex
-                        flex="2"
-                        flexDirection={['column-reverse', null, null, 'row']}
-                        alignItems={['flex-end', null, null, 'center']}
-                      >
-                        <DoodaDataQty>0</DoodaDataQty>
-                        <DoodaDataCurrency>dooda</DoodaDataCurrency>
-                      </Flex>
-                      <DswapTotal>
-                        <DoodaDataTotal>~ $ 0</DoodaDataTotal>
-                      </DswapTotal>
-                    </DswapData>
-                  </DswapRight>
-                </Flex>
-                <DswapButton>보상 수확하기</DswapButton>
+                <DoodaFarmedStakingCard />
               </DmainCenter>
               <DmainRight>
                 <StyledDoodaHeadAlt2>DOODA Stats</StyledDoodaHeadAlt2>
@@ -545,9 +384,9 @@ const DoodaMain = () => {
                     </DoodaStatEachRow>
                   ))}
                   <DoodaStatStyledButton>
-                    <DoodaStyledHeading style={{ color: '#F1F3F5', fontSize: '14px', marginTop: '2px' }}>
+                    <DoodaHeading style={{ color: '#F1F3F5', fontSize: '14px', marginTop: '2px' }}>
                       더 알아보기
-                    </DoodaStyledHeading>
+                    </DoodaHeading>
                   </DoodaStatStyledButton>
                 </Flex>
               </DmainRight>
@@ -611,21 +450,6 @@ const DoodaMain = () => {
             </Flex>
           </DoodaSwapBelowMain>
         </Flex>
-
-        {/* <Flex
-          height={['192px', null, null, '100%']}
-          width={['192px', null, null, '100%']}
-          flex={[null, null, null, '1']}
-          mb={['24px', null, null, '0']}
-          position="relative"
-        >
-          <BunnyWrapper>
-            <img src={`${imagePath}${imageSrc}.png`} srcSet={getSrcSet(imagePath, imageSrc)} alt={t('Lunar bunny')} />
-          </BunnyWrapper>
-          <StarsWrapper>
-            <CompositeImage {...starsImage} />
-          </StarsWrapper>
-        </Flex> */}
       </Flex>
     </>
   )

@@ -18,7 +18,6 @@ import isArchivedPid from 'utils/farmHelpers'
 import { latinise } from 'utils/latinise'
 import { useUserFarmStakedOnly, useUserFarmsViewMode } from 'state/user/hooks'
 import { ViewMode } from 'state/user/actions'
-import PageHeader from 'components/PageHeader'
 import SearchInput from 'components/SearchInput'
 import Select, { OptionProps } from 'components/Select/Select'
 import Loading from 'components/Loading'
@@ -28,6 +27,7 @@ import FarmTabButtons from './components/FarmTabButtons'
 import { RowProps } from './components/FarmTable/Row'
 import ToggleView from './components/ToggleView/ToggleView'
 import { DesktopColumnSchema } from './components/types'
+import { DoodaStyledPageHeader, DoodaFarmHeading, DoodaFarmText } from './styles'
 
 const ControlContainer = styled.div`
   display: flex;
@@ -369,22 +369,22 @@ const Farms: React.FC = () => {
 
   return (
     <>
-      <PageHeader>
-        <Heading as="h1" scale="xxl" color="secondary" mb="24px">
-          {t('Farms')}
-        </Heading>
-        <Heading scale="lg" color="text">
-          {t('Stake LP tokens to earn.')}
-        </Heading>
-        <NavLink exact activeClassName="active" to="/farms/auction" id="lottery-pot-banner">
+      <DoodaStyledPageHeader>
+        <DoodaFarmHeading as="h1" scale="xxl" color="doodaPrimary" mb="24px">
+          {t('파밍')}
+        </DoodaFarmHeading>
+        <DoodaFarmText scale="lg" color="doodaText">
+          {t('자산을 예치하고 DOODA 토큰을 보상 받아보세요.')}
+        </DoodaFarmText>
+        {/* <NavLink exact activeClassName="active" to="/farms/auction" id="lottery-pot-banner">
           <Button p="0" variant="text">
             <Text color="primary" bold fontSize="16px" mr="4px">
-              {t('Community Auctions')}
+              {t('Community Auctionsss')}
             </Text>
             <ArrowForwardIcon color="primary" />
           </Button>
-        </NavLink>
-      </PageHeader>
+        </NavLink> */}
+      </DoodaStyledPageHeader>
       <Page>
         <ControlContainer>
           <ViewControls>
