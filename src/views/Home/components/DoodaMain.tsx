@@ -367,7 +367,9 @@ const DoodaMain = () => {
                   <CarosalSub isDark={theme.isDark} />
                 </CarosalContainer>
               </DmainLeft>
-              <DmainCenter>{/* <DoodaFarmedStakingCard /> */}</DmainCenter>
+              <DmainCenter>
+                <DoodaFarmedStakingCard />
+              </DmainCenter>
               <DmainRight>
                 <StyledDoodaHeadAlt2>DOODA Stats</StyledDoodaHeadAlt2>
                 <Flex flex="2" flexDirection={['column', null, null, 'column']}>
