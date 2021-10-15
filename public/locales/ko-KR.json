@@ -1468,5 +1468,13 @@
   "Invalid pair": "유효하지 않은 쌍",
   "V1 (old)": "V1(이전)",
   "Transaction receipt": "트랜잭션 리시트",
-  "You won points for joining PancakeSwap during the first year of our journey!": "여정의 첫 해에 PancakeSwap에 가입하면 포인트가 제공됩니다!"
+  "You won points for joining PancakeSwap during the first year of our journey!": "여정의 첫 해에 PancakeSwap에 가입하면 포인트가 제공됩니다!",
+  "TVL all pools": "예치 중인 자산",
+  "Dooda Holdingds": "보유 중인 DOODA",
+  "Dooda price": "DOODA 현재가",
+  "Your earnings": "기간별 보상액 ($)",
+  "Your APR": "예상 수익률 (%)",
+  "My Asset Report": "내 자산 보고서",
+  "Make a deposit and earn money. Opportunities for steady revenue generation are at hand.": "예치하고, 수익을 얻어보세요. 꾸준한 수익 창출 기회는 가까이 있습니다."
+
 }
