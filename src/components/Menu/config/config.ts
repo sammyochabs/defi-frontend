@@ -5,7 +5,7 @@ export type ConfigMenuItemsType = MenuItemsType & { hideSubNav?: boolean }
 
 const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
   {
-    label: 'Home',
+    label: t('Home'),
     href: '/',
     icon: 'Home',
     showItemsOnMobile: false,
@@ -19,19 +19,19 @@ const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
     items: [],
   },
   {
-    label: 'Trade',
+    label: t('Trade'),
     href: '/swap',
     icon: 'Swap',
     items: [],
   },
   {
-    label: 'Farms',
+    label: t('Farms'),
     href: '/farms',
     icon: 'Farms',
     items: [],
   },
   {
-    label: 'Pools',
+    label: t('Pools'),
     href: '/pools',
     icon: 'Pools',
     items: [],
@@ -46,6 +46,12 @@ const config: (t: ContextApi['t']) => ConfigMenuItemsType[] = (t) => [
     label: 'NFA',
     href: '/collectibles',
     icon: 'collectibles',
+    items: [],
+  },
+  {
+    label: 'sDOODA',
+    href: '#',
+    icon: 'sdooda',
     items: [],
   },
 ]
