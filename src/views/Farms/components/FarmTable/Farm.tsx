@@ -32,15 +32,6 @@ const TokenWrapper = styled.div`
     width: 40px;
   }
 `
-const StyledTextFarm = styled(Text)`
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 26px;
-  letter-spacing: -0.8px;
-  color: #4d5560;
-`
 
 const Farm: React.FunctionComponent<FarmProps> = ({ token, quoteToken, label, pid }) => {
   const { stakedBalance } = useFarmUser(pid)
@@ -66,7 +57,7 @@ const Farm: React.FunctionComponent<FarmProps> = ({ token, quoteToken, label, pi
       </TokenWrapper>
       <div>
         {handleRenderFarming()}
-        <StyledTextFarm>{label}</StyledTextFarm>
+        <Text bold>{label}</Text>
       </div>
     </Container>
   )

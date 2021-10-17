@@ -16,6 +16,7 @@ const Container = styled.div`
   filter: ${({ theme }) => theme.card.dropShadow};
   width: 100%;
   background: ${({ theme }) => theme.card.background};
+  border-radius: 16px;
   margin: 16px 0px;
 `
 
@@ -45,46 +46,9 @@ const TableBody = styled.tbody`
     }
   }
 `
-const TableHead = styled.thead`
-  &tr {
-    td {
-      color: red;
-    }
-  }
-`
 
 const TableContainer = styled.div`
   position: relative;
-`
-const StyledTh = styled.th`
-  height: 4rem;
-  text-align: left;
-  border-bottom: 1px solid black;
-  // background: red;
-  padding-left: 1rem;
-  padding-top: 1.5rem;
-  margin-right: 2rem;
-`
-const ThContainer = styled.div`
-  background: red;
-`
-const StyledTr = styled.tr`
-  cursor: pointer;
-  border-bottom: 2px solid ${({ theme }) => theme.colors.cardBorder};
-`
-const StyledThTr = styled(StyledTr)`
-  height: 4rem;
-  text-align: left;
-  border-bottom: 1px solid #dee2e6;
-  td {
-    padding-top: 1.2rem;
-    color: #4d5560;
-    font-size: 14px;
-    line-height: 26px;
-    letter-spacing: -0.8px;
-    color: #4d5560;
-    padding-left: 1.1rem;
-  }
 `
 
 const ScrollButtonContainer = styled.div`
@@ -98,10 +62,9 @@ const FarmTable: React.FC<ITableProps> = (props) => {
   const tableWrapperEl = useRef<HTMLDivElement>(null)
   const { t } = useTranslation()
   const { data, columns, userDataReady } = props
-  console.log('Hey data before sending to useTable', data)
+
   const { rows } = useTable(columns, data, { sortable: true, sortColumn: 'farm' })
 
-  // console.log('Rows', rows)
   const scrollToTop = (): void => {
     tableWrapperEl.current.scrollIntoView({
       behavior: 'smooth',
@@ -113,13 +76,6 @@ const FarmTable: React.FC<ITableProps> = (props) => {
       <TableContainer>
         <TableWrapper ref={tableWrapperEl}>
           <StyledTable>
-            <TableHead>
-              <StyledThTr>
-                {tableTh.map((row) => (
-                  <td>{row}</td>
-                ))}
-              </StyledThTr>
-            </TableHead>
             <TableBody>
               {rows.map((row) => {
                 return <Row {...row.original} userDataReady={userDataReady} key={`table-row-${row.id}`} />
@@ -137,6 +93,5 @@ const FarmTable: React.FC<ITableProps> = (props) => {
     </Container>
   )
 }
-const tableTh = ['페어명', '예상 연 수익률', '예치 자산', 'DOODA 보상', '']
 
 export default FarmTable

@@ -1,0 +1,23 @@
+.farmsContainer {
+  padding: 0px 12.32%;
+}
+@media (max-width: 685px) {
+  .farmsContainer {
+    padding: 0px 2%;
+  }
+}
+@media (min-width: 575px) and (max-width: 768px) {
+  .farmsContainer {
+    padding: 0px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1000px) {
+  .farmsContainer {
+    padding: 0px 3%;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1100px) {
+  .farmsContainer {
+    padding: 0px 8%;
+  }
+}

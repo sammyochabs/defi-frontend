@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useLocation, Link, useRouteMatch } from 'react-router-dom'
-import { ButtonMenu, ButtonMenuItem, NotificationDot, Button } from '@doodaswap/uikit'
-
+import { ButtonMenu, ButtonMenuItem, NotificationDot } from '@doodaswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 
 interface FarmTabButtonsProps {
@@ -32,16 +31,16 @@ const FarmTabButtons: React.FC<FarmTabButtonsProps> = ({ hasStakeInFinishedFarms
 
   return (
     <Wrapper>
-      <StyledButtonMenu scale="sm" variant="subtle">
-        <StyledButtonMenuItem as={Link} to={`${url}`}>
-          {t('Active')}
-        </StyledButtonMenuItem>
+      <ButtonMenu activeIndex={activeIndex} scale="sm" variant="subtle">
+        <ButtonMenuItem as={Link} to={`${url}`}>
+          {t('Live')}
+        </ButtonMenuItem>
         <NotificationDot show={hasStakeInFinishedFarms}>
-          <StyledButtonMenuItemInactive id="finished-farms-button" as={Link} to={`${url}/history`}>
-            {t('Inactive')}
-          </StyledButtonMenuItemInactive>
+          <ButtonMenuItem id="finished-farms-button" as={Link} to={`${url}/history`}>
+            {t('Finished')}
+          </ButtonMenuItem>
         </NotificationDot>
-      </StyledButtonMenu>
+      </ButtonMenu>
     </Wrapper>
   )
 }
@@ -61,33 +60,4 @@ const Wrapper = styled.div`
   ${({ theme }) => theme.mediaQueries.sm} {
     margin-left: 16px;
   }
-`
-const StyledButtonMenu = styled(ButtonMenu)`
-  border: none;
-  width: 100%;
-  background: none;
-  border-radius: ${({ theme }) => theme.radii.doodaCard};
-`
-
-const StyledButtonMenuItem = styled(ButtonMenuItem)`
-  background-color: #3763a4;
-  padding: 0.5rem 5rem;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 22px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: -0.8px;
-  color: #f1f3f5;
-  margin-right: 1rem;
-`
-
-const StyledButtonMenuItemInactive = styled(StyledButtonMenuItem)`
-  background: #ffffff;
-  color: ${({ theme }) => theme.colors.doodaPrimary};
-  background: #e9ecef;
-  border-radius: 2px;
 `

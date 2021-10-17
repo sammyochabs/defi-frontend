@@ -28,11 +28,18 @@
     "radix": 0,
     "import/no-extraneous-dependencies": 0,
     "jsx-a11y/media-has-caption": 0,
+    "jsx-a11y/label-has-associated-control": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-noninteractive-element-interactions": 0,
+    "jsx-a11y/interactive-supports-focus": 0,
     // Exchange
     "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["state", "memo"] }],
     "react/require-default-props": 0,
     "no-nested-ternary": 0,
-    "max-classes-per-file": 0
+    "max-classes-per-file": 0,
+    "react/self-closing-comp": 0,
+    "react/jsx-curly-brace-presence": 0
+
     // End temporary rules
   }
 }
