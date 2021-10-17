@@ -2,7 +2,20 @@ import React, { useEffect, useCallback, useState, useMemo, useRef } from 'react'
 import { Route, useRouteMatch, useLocation, NavLink } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
 import { useWeb3React } from '@web3-react/core'
-import { Image, Heading, RowType, Toggle, Text, Button, ArrowForwardIcon, Flex } from '@doodaswap/uikit'
+import {
+  Image,
+  Heading,
+  RowType,
+  Toggle,
+  Text,
+  Button,
+  ArrowForwardIcon,
+  Flex,
+  Checkbox,
+  Th,
+  Td,
+  // Table,
+} from '@doodaswap/uikit'
 import { ChainId } from '@pancakeswap/sdk'
 import styled from 'styled-components'
 import FlexLayout from 'components/Layout/Flex'
@@ -28,6 +41,7 @@ import { RowProps } from './components/FarmTable/Row'
 import ToggleView from './components/ToggleView/ToggleView'
 import { DesktopColumnSchema } from './components/types'
 import { DoodaStyledPageHeader, DoodaFarmHeading, DoodaFarmText } from './styles'
+import farmImage from '../../components/Dooda/assets/farmImage.png'
 
 const ControlContainer = styled.div`
   display: flex;
@@ -37,7 +51,10 @@ const ControlContainer = styled.div`
 
   justify-content: space-between;
   flex-direction: column;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
+  background: #ffffff;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     flex-direction: row;
@@ -79,8 +96,9 @@ const ViewControls = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   display: flex;
+  height: 3.5rem;
   align-items: center;
-  width: 100%;
+  width: 45% !important;
 
   > div {
     padding: 8px 0px;
@@ -95,11 +113,33 @@ const ViewControls = styled.div`
     }
   }
 `
+const ViewControlsRight = styled.div`
+  float: right;
+  display: flex;
+  flex-direction: row;
+`
 
 const StyledImage = styled(Image)`
   margin-left: auto;
   margin-right: auto;
   margin-top: 58px;
+`
+const SearchIcon = styled.div`
+  position: absolute;
+  top: 1.9rem !important;
+  padding-left: 1rem;
+  padding-top: 0.3rem;
+  z-index: 100;
+  width: 25px;
+`
+const StyledText = styled(Text)`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  color: #99a2ab;
 `
 const NUMBER_OF_FARMS_VISIBLE = 12
 
@@ -255,7 +295,7 @@ const Farms: React.FC = () => {
     const { token, quoteToken } = farm
     const tokenAddress = token.address
     const quoteTokenAddress = quoteToken.address
-    const lpLabel = farm.lpSymbol && farm.lpSymbol.split(' ')[0].toUpperCase().replace('PANCAKE', '')
+    const lpLabel = farm.lpSymbol && farm.lpSymbol.split(' ')[0].toUpperCase().replace('PANCAKE', '').replace('-', '+')
 
     const row: RowProps = {
       apr: {
@@ -319,6 +359,29 @@ const Farms: React.FC = () => {
       }))
 
       return <Table data={rowData} columns={columns} userDataReady={userDataReady} />
+      // return (
+      //   <Table>
+      //     <thead>
+      //       <tr>
+      //         <Th textAlign="left">Column 1</Th>
+      //         <Th>Column 2</Th>
+      //         <Th>Column 3</Th>
+      //       </tr>
+      //     </thead>
+      //     <tbody>
+      //       <tr>
+      //         <Td>Cell 1-1</Td>
+      //         <Td>Cell 1-2</Td>
+      //         <Td>Cell 1-3</Td>
+      //       </tr>
+      //       <tr>
+      //         <Td>Cell 2-1</Td>
+      //         <Td>Cell 2-2</Td>
+      //         <Td>Cell 2-3</Td>
+      //       </tr>
+      //     </tbody>
+      //   </Table>
+      // )
     }
 
     return (
@@ -370,38 +433,58 @@ const Farms: React.FC = () => {
   return (
     <>
       <DoodaStyledPageHeader>
-        <DoodaFarmHeading as="h1" scale="xxl" color="doodaPrimary" mb="24px">
-          {t('파밍')}
-        </DoodaFarmHeading>
-        <DoodaFarmText scale="lg" color="doodaText">
-          {t('자산을 예치하고 DOODA 토큰을 보상 받아보세요.')}
-        </DoodaFarmText>
-        {/* <NavLink exact activeClassName="active" to="/farms/auction" id="lottery-pot-banner">
-          <Button p="0" variant="text">
-            <Text color="primary" bold fontSize="16px" mr="4px">
-              {t('Community Auctionsss')}
-            </Text>
-            <ArrowForwardIcon color="primary" />
-          </Button>
-        </NavLink> */}
+        <Flex flex="2" flexDirection={['row', null, null, 'row']} alignItems={['center', null, null, 'center']}>
+          <Flex
+            flex="2"
+            flexDirection={['column', null, null, 'column']}
+            alignItems={['flex-start', null, null, 'flex-start']}
+          >
+            <DoodaFarmHeading as="h1" scale="xxl" color="doodaPrimary" mb="24px">
+              {t('파밍')}
+            </DoodaFarmHeading>
+            <DoodaFarmText scale="lg" color="doodaText">
+              {t('자산을 예치하고')}
+              <br />
+              {t('DOODA 토큰을 보상 받아보세요.')}
+            </DoodaFarmText>
+          </Flex>
+          <Image src="/images/farm/farmImage.png" width={400} height={350} />
+        </Flex>
       </DoodaStyledPageHeader>
       <Page>
         <ControlContainer>
           <ViewControls>
             <ToggleView viewMode={viewMode} onToggle={(mode: ViewMode) => setViewMode(mode)} />
+          </ViewControls>
+          <ViewControlsRight>
+            <LabelWrapper style={{ marginLeft: 16 }}>
+              <SearchIcon>
+                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M8 16C9.77498 15.9996 11.4988 15.4054 12.897 14.312L17.293 18.708L18.707 17.294L14.311 12.898C15.405 11.4997 15.9996 9.77544 16 8C16 3.589 12.411 0 8 0C3.589 0 0 3.589 0 8C0 12.411 3.589 16 8 16ZM8 2C11.309 2 14 4.691 14 8C14 11.309 11.309 14 8 14C4.691 14 2 11.309 2 8C2 4.691 4.691 2 8 2Z"
+                    fill="#636C7D"
+                  />
+                </svg>
+              </SearchIcon>
+              {/* <Text textTransform="uppercase">{t('Search')}</Text> */}
+              <SearchInput onChange={handleChangeQuery} placeholder="Search Farms" />
+            </LabelWrapper>
+
+            <FarmTabButtons hasStakeInFinishedFarms={stakedInactiveFarms.length > 0} />
             <ToggleWrapper>
-              <Toggle
+              {/* <Toggle
                 id="staked-only-farms"
                 checked={stakedOnly}
                 onChange={() => setStakedOnly(!stakedOnly)}
                 scale="sm"
-              />
-              <Text> {t('Staked only')}</Text>
+              /> */}
+              <Checkbox name="confirmed" type="checkbox" onChange={() => setStakedOnly(!stakedOnly)} scale="sm" />
+
+              <StyledText> {t('Staked')}</StyledText>
             </ToggleWrapper>
-            <FarmTabButtons hasStakeInFinishedFarms={stakedInactiveFarms.length > 0} />
-          </ViewControls>
+          </ViewControlsRight>
           <FilterContainer>
-            <LabelWrapper>
+            {/* <LabelWrapper>
               <Text textTransform="uppercase">{t('Sort by')}</Text>
               <Select
                 options={[
@@ -428,11 +511,7 @@ const Farms: React.FC = () => {
                 ]}
                 onOptionChange={handleSortOptionChange}
               />
-            </LabelWrapper>
-            <LabelWrapper style={{ marginLeft: 16 }}>
-              <Text textTransform="uppercase">{t('Search')}</Text>
-              <SearchInput onChange={handleChangeQuery} placeholder="Search Farms" />
-            </LabelWrapper>
+            </LabelWrapper> */}
           </FilterContainer>
         </ControlContainer>
         {renderContent()}

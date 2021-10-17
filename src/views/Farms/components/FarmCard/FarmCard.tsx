@@ -26,6 +26,7 @@ const StyledCard = styled(Card)`
 
 const FarmCardInnerContainer = styled(Flex)`
   flex-direction: column;
+  border-radius: 100px !important;
   justify-content: space-around;
   padding: 24px;
 `
@@ -110,7 +111,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, cakePric
         />
       </FarmCardInnerContainer>
 
-      <ExpandingWrapper>
+      {/* <ExpandingWrapper>
         <ExpandableSectionButton
           onClick={() => setShowExpandableSection(!showExpandableSection)}
           expanded={showExpandableSection}
@@ -125,7 +126,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, cakePric
             addLiquidityUrl={addLiquidityUrl}
           />
         )}
-      </ExpandingWrapper>
+      </ExpandingWrapper> */}
     </StyledCard>
   )
 }

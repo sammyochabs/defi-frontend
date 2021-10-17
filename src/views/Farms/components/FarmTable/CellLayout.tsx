@@ -10,6 +10,7 @@ const Label = styled.div`
 const ContentContainer = styled.div`
   min-height: 24px;
   display: flex;
+  color: red;
   align-items: center;
 `
 
