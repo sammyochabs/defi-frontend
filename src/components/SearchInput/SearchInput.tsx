@@ -6,14 +6,23 @@ import { useTranslation } from 'contexts/Localization'
 
 const StyledInput = styled(Input)`
   border-radius: 16px;
+  border: 1px solid #99a2ab;
   margin-left: auto;
+  border-radius: 100px;
+  &:focus {
+    outline: 0 !important;
+  }
+  &:focus:not(:disabled) {
+    // box-shadow: ${({ theme }) => theme.shadows.focus};
+    box-shadow: none;
+  }
 `
 
 const InputWrapper = styled.div`
   position: relative;
   ${({ theme }) => theme.mediaQueries.sm} {
     display: block;
-  }
+s  }
 `
 
 interface Props {
@@ -38,7 +47,12 @@ const SearchInput: React.FC<Props> = ({ onChange: onChangeCallback, placeholder 
 
   return (
     <InputWrapper>
-      <StyledInput value={searchText} onChange={onChange} placeholder={t(placeholder)} />
+      <StyledInput
+        style={{ paddingLeft: '2.3rem', width: '100%' }}
+        value={searchText}
+        onChange={onChange}
+        placeholder={t(placeholder)}
+      />
     </InputWrapper>
   )
 }

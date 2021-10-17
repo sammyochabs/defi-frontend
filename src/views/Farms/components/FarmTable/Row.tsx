@@ -89,50 +89,56 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
   const tableSchema = isSmallerScreen ? MobileColumnSchema : DesktopColumnSchema
   const columnNames = tableSchema.map((column) => column.name)
 
+  // console.log('TableSchema', tableSchema)
+  console.log(props, 'This is data')
+
   const handleRenderRow = () => {
     if (!isMobile) {
       return (
-        <StyledTr onClick={toggleActionPanel}>
-          {Object.keys(props).map((key) => {
-            const columnIndex = columnNames.indexOf(key)
-            if (columnIndex === -1) {
-              return null
-            }
+        <>
+          <StyledTr onClick={toggleActionPanel}>
+            {Object.keys(props).map((key) => {
+              const columnIndex = columnNames.indexOf(key)
+              if (columnIndex === -1) {
+                return null
+              }
 
-            switch (key) {
-              case 'details':
-                return (
-                  <td key={key}>
-                    <CellInner>
-                      <CellLayout>
-                        <Details actionPanelToggled={actionPanelExpanded} />
-                      </CellLayout>
-                    </CellInner>
-                  </td>
-                )
-              case 'apr':
-                return (
-                  <td key={key}>
-                    <CellInner>
-                      <CellLayout label={t('APR')}>
-                        <Apr {...props.apr} hideButton={isSmallerScreen} />
-                      </CellLayout>
-                    </CellInner>
-                  </td>
-                )
-              default:
-                return (
-                  <td key={key}>
-                    <CellInner>
-                      <CellLayout label={t(tableSchema[columnIndex].label)}>
-                        {React.createElement(cells[key], { ...props[key], userDataReady })}
-                      </CellLayout>
-                    </CellInner>
-                  </td>
-                )
-            }
-          })}
-        </StyledTr>
+              switch (key) {
+                case 'detailss':
+                  return (
+                    <td key={key}>
+                      <CellInner>
+                        <CellLayout label={t('details')}>
+                          <Details actionPanelToggled={actionPanelExpanded} />
+                        </CellLayout>
+                      </CellInner>
+                    </td>
+                  )
+                case 'aprr':
+                  return (
+                    <td key={key}>
+                      <CellInner>
+                        <CellLayout label={t('APR')}>
+                          <Apr {...props.apr} hideButton={isSmallerScreen} />
+                        </CellLayout>
+                      </CellInner>
+                    </td>
+                  )
+                default:
+                  return (
+                    <td key={key}>
+                      <CellInner>
+                        {/* <CellLayout label={t(tableSchema[columnIndex].label)}> */}
+                        <CellLayout label="">
+                          {React.createElement(cells[key], { ...props[key], userDataReady })}
+                        </CellLayout>
+                      </CellInner>
+                    </td>
+                  )
+              }
+            })}
+          </StyledTr>
+        </>
       )
     }
 
