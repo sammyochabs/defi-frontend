@@ -16,6 +16,7 @@ import {
   Td,
   // Table,
 } from '@doodaswap/uikit'
+
 import { ChainId } from '@pancakeswap/sdk'
 import styled from 'styled-components'
 import FlexLayout from 'components/Layout/Flex'
@@ -42,6 +43,7 @@ import ToggleView from './components/ToggleView/ToggleView'
 import { DesktopColumnSchema } from './components/types'
 import { DoodaStyledPageHeader, DoodaFarmHeading, DoodaFarmText } from './styles'
 import farmImage from '../../components/Dooda/assets/farmImage.png'
+
 
 const ControlContainer = styled.div`
   display: flex;
@@ -433,6 +435,7 @@ const Farms: React.FC = () => {
   return (
     <>
       <DoodaStyledPageHeader>
+
         <Flex flex="2" flexDirection={['row', null, null, 'row']} alignItems={['center', null, null, 'center']}>
           <Flex
             flex="2"

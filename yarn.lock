@@ -1535,6 +1535,7 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
+
 "@doodaswap/uikit@^0.54.24":
   version "0.54.24"
   resolved "https://registry.yarnpkg.com/@doodaswap/uikit/-/uikit-0.54.24.tgz#7aa4cb8a87d38235eab589eb27624e7f262d958a"
