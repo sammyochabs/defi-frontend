@@ -82,7 +82,7 @@ const DoodaFarmedStakingCard = () => {
       <DoodaSubHeading> {t('Farms & Staking')}</DoodaSubHeading>
       <Flex flex="2" flexDirection={['column', null, null, 'row']} alignItems={['flex-start', null, null, 'center']}>
         <DswapLeft>
-          <StyledSubHead>수령 가능</StyledSubHead>
+          <StyledSubHead>{t('Dooda to harvest')}</StyledSubHead>
           <DswapData>
             <Flex
               flex="2"
@@ -98,7 +98,7 @@ const DoodaFarmedStakingCard = () => {
           </DswapData>
         </DswapLeft>
         <DswapRight>
-          <StyledSubHead>누적 보상</StyledSubHead>
+          <StyledSubHead>{t('Dooda in wallet')}</StyledSubHead>
           <DswapData>
             <Flex
               flex="2"
@@ -114,7 +114,7 @@ const DoodaFarmedStakingCard = () => {
           </DswapData>
         </DswapRight>
       </Flex>
-      <DswapButton>보상 수확하기</DswapButton>
+      <DswapButton>{t('Harvest all')}</DswapButton>
     </>
   )
 }

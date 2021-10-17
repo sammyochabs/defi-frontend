@@ -337,7 +337,7 @@ const DoodaMain = () => {
         <Flex flex="2" flexDirection="column">
           <DoodaHeading scale="xxl">
             <DoodaHomepageLogo isDark={theme.isDark} />
-            <DoodaSubText>안녕하세요, DOODA 입니다.</DoodaSubText>
+            <DoodaSubText>{t('Hello We are DOODA')}</DoodaSubText>
           </DoodaHeading>
           <DoodaSwapMain>
             <Flex
@@ -346,13 +346,13 @@ const DoodaMain = () => {
               alignItems={['flex-start', 'center', 'center', 'center']}
             >
               <DmainLeft>
-                <StyledDoodaHeadAlt>아프로디테 (AFD) NFT 옥션이 시작되었습니다!</StyledDoodaHeadAlt>
+                <StyledDoodaHeadAlt>{t('Aphrodite, NFT auction has started')}</StyledDoodaHeadAlt>
                 <Flex
                   flex="2"
                   flexDirection={['column', null, null, 'row']}
                   alignItems={['center', null, null, 'center']}
                 >
-                  <DoodaSubTextLeft>총 46종의 NFT를 만나보세요. 48시간 후에 시작됩니다.</DoodaSubTextLeft>
+                  <DoodaSubTextLeft>{t('Meet a total of 46 NFTs. It starts after 48 hours.')}</DoodaSubTextLeft>
                   <StyledRightArrow isDark={theme.isDark} />
                 </Flex>
                 <Flex
@@ -360,7 +360,7 @@ const DoodaMain = () => {
                   flexDirection={['column-reverse', null, null, 'row']}
                   alignItems={['center', null, null, 'center']}
                 >
-                  <DoodaDefaultBtn>바로가기</DoodaDefaultBtn>
+                  <DoodaDefaultBtn>{t('Go to')}</DoodaDefaultBtn>
                 </Flex>
                 <CarosalContainer>
                   <CarosalMain isDark={theme.isDark} />
@@ -385,7 +385,7 @@ const DoodaMain = () => {
                   ))}
                   <DoodaStatStyledButton>
                     <DoodaHeading style={{ color: '#F1F3F5', fontSize: '14px', marginTop: '2px' }}>
-                      더 알아보기
+                      {t('Learn more')}
                     </DoodaHeading>
                   </DoodaStatStyledButton>
                 </Flex>
@@ -404,8 +404,10 @@ const DoodaMain = () => {
                   flexDirection={['column', null, null, 'row']}
                   alignItems={['flex-start', null, null, 'center']}
                 >
-                  <DoodaSubText style={{ textAlign: 'left', fontSize: '13px' }}>예상 연 수익률</DoodaSubText>
-                  <DoodaStyledRightBtn>참여하기</DoodaStyledRightBtn>
+                  <DoodaSubText style={{ textAlign: 'left', fontSize: '13px' }}>
+                    {t('Earn up to APR in farms')}
+                  </DoodaSubText>
+                  <DoodaStyledRightBtn>{t('Apply to')}</DoodaStyledRightBtn>
                 </Flex>
                 <DoodaStyledLabel>
                   419.40<span>&nbsp;%</span>
@@ -423,7 +425,9 @@ const DoodaMain = () => {
                       flexDirection={['column', null, null, 'row']}
                       alignItems={['flex-start', null, null, 'center']}
                     >
-                      <DoodaSubText style={{ textAlign: 'left', fontSize: '13px' }}>예치된 총 자산 (TVL)</DoodaSubText>
+                      <DoodaSubText style={{ textAlign: 'left', fontSize: '13px' }}>
+                        {t('Total value locked')}
+                      </DoodaSubText>
                       {/* <DoodaStyledRightBtn>참여하기</DoodaStyledRightBtn> */}
                     </Flex>
                     <DoodaStyledLabel>
@@ -457,7 +461,7 @@ const DoodaMain = () => {
 
 const DoodaStatData = [
   {
-    label: 'USD 환산 가치',
+    label: 'USD 환산가치',
     value: '$ 173,677,628',
   },
   {
