@@ -451,17 +451,21 @@
 // export default Farms
 import Header from 'components/Header'
 import React from 'react'
+import Footer from 'components/Footer'
 import WelcomeSection from './components/WelcomeSection'
 import Table from './components/Table'
 import styles from '../../style/farms.module.css'
 
 const Farms = () => {
   return (
-    <div className={styles.farmsContainer}>
+    <>
       <Header />
-      <WelcomeSection />
-      <Table />
-    </div>
+      <div className={styles.farmsContainer}>
+        <WelcomeSection />
+        <Table />
+      </div>
+      <Footer />
+    </>
   )
 }
 

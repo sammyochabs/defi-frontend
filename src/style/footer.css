@@ -1,0 +1,53 @@
+.footer-container {
+  background: #99a2ab;
+  padding: 2% 12.32%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-container > div:first-child {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 13%;
+}
+.footer-container > div:first-child > div {
+  display: flex;
+  flex-direction: column;
+}
+.footer-container > div:first-child > div > span {
+  font-family: Spoqa Han Sans Neo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 22px;
+  letter-spacing: -0.02em;
+  color: #e9ecef;
+}
+.footer-container > div:first-child > div > span:first-child {
+  font-family: Spoqa Han Sans Neo;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  color: #e9ecef;
+}
+.footer-container > div:last-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 15%;
+}
+@media (max-width: 685px) {
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-container > div:last-child {
+    width: 55%;
+    margin-top: 3%;
+  }
+}
